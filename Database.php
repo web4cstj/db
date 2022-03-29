@@ -3,10 +3,10 @@ namespace Web4cstj\DB;
 use PDO;
 class Database
 {
-    static public $path = __DIR__ . "/../database/";
-    static public $db = "database";
-    static public $extension = ".sqlite";
-    static public $pdo = null;
+    static protected $path = __DIR__ . "/../database/";
+    static protected $db = "database";
+    static protected $extension = ".sqlite";
+    static protected $pdo = null;
     static public function connect()
     {
         if (self::$pdo === null) {

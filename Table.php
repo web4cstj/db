@@ -3,11 +3,15 @@ namespace Web4cstj\DB;
 use PDO;
 class Table
 {
-    static public $table = null;
-    static public $champs = [];
+    static protected $database = Database::class;
+    static protected $table = null;
+    static protected $champs = [];
+    static public function connect(){
+        return static::$database::connect();
+    }
     static public function all($champs = '*', $order = '')
     {
-        $pdo = Database::connect();
+        $pdo = static::connect();
         if (is_array($champs)) {
             $champs = implode(',', $champs);
         }
@@ -23,7 +27,7 @@ class Table
     }
     static public function find($id)
     {
-        $pdo = Database::connect();
+        $pdo = static::connect();
         $stmt = $pdo->prepare("SELECT * FROM " . static::$table . " WHERE id=:id");
         $stmt->bindParam(':id', $id);
         $stmt->setFetchMode(PDO::FETCH_CLASS, static::class);
@@ -32,7 +36,7 @@ class Table
         return $resultat;
     }
     public function save() {
-        $pdo = Database::connect();
+        $pdo = static::connect();
         if ($this->id) {
             $set = [];
             foreach (static::$champs as $champ => $etiquette) {
