@@ -1,0 +1,11 @@
+{
+    "name": "web4cstj/dd",
+    "description": "Couche d'abstraction de base de données SQLite",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.4"
+    },
+	"autoload": {
+		"psr-4": { "Web4cstj\\DB\\": "" }
+	}
+}
