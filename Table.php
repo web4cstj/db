@@ -1,4 +1,6 @@
 <?php
+namespace Web4cstj\DB;
+use PDO;
 class Table
 {
     static public $table = null;
@@ -48,7 +50,7 @@ class Table
         $stmt->execute();
         return $this;
     }
-    public function bind(PDOStatement $stmt, $champs) {
+    public function bind($stmt, $champs) {
         if (!is_array($champs)) {
             $champs = [$champs];
         }

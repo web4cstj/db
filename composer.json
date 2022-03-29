@@ -1,5 +1,5 @@
 {
-    "name": "web4cstj/dd",
+    "name": "web4cstj/db",
     "description": "Couche d'abstraction de base de données SQLite",
     "license": "MIT",
     "require": {

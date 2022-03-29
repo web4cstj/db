@@ -1,4 +1,6 @@
 <?php
+namespace Web4cstj\DB;
+use PDO;
 class Database
 {
     static public $path = __DIR__ . "/../database/";
